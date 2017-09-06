@@ -1,0 +1,2193 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/1/2017 11:48:17 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="PRITIDELL"
+  DTS:CreatorName="PRITIDELL\Priti"
+  DTS:DTSID="{DA9C534E-CE5E-49DF-BF24-6BDA91624333}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.6020.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Merge"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{94BA4646-019E-4E76-BB1A-3365B794D740}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[.\sql2012.AdventureWorksDW20121]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{866E4CCC-7107-45C7-8CA7-4BE764F39B6F}"
+      DTS:ObjectName=".\sql2012.AdventureWorksDW20121">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.\sql2012;Initial Catalog=AdventureWorksDW2012;Integrated Security=True;Application Name=SSIS-Merge-{866E4CCC-7107-45C7-8CA7-4BE764F39B6F}.\sql2012.AdventureWorksDW20121;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager - High Income Group Customers]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{FE749BDC-38A1-44B1-BE3D-24010BD13504}"
+      DTS:ObjectName="Flat File Connection Manager - High Income Group Customers">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Demos\CG\Airoli_Mindspace_East\Customers Data\High Income Group.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomerKey"
+              DTS:DTSID="{9BCE88E0-CDF7-452D-9810-AE80F11FE8D3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{7B0AB95F-520C-4C72-A0D4-B9C5A6DD43CC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MiddleName"
+              DTS:DTSID="{A5BA47AC-EEA7-498D-AA04-56895FCD032E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastName"
+              DTS:DTSID="{46F37681-47AD-4B3C-8549-F70715B7B460}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gender"
+              DTS:DTSID="{0739D44E-C6A7-47B6-BCED-DEB8E06C6CE4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Occupation"
+              DTS:DTSID="{D7BD2E40-DFFA-4A42-8C75-9583C0FAD137}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GeographyKey"
+              DTS:DTSID="{33157B19-E528-4DB8-9380-2C9F8C7884FB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="YearlyIncome"
+              DTS:DTSID="{27807A48-C74C-4ECE-BB09-102182D880E5}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager - Medium Income Group Customers]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{515EDB74-4CE4-48C7-A2C7-552ABBC3666E}"
+      DTS:ObjectName="Flat File Connection Manager - Medium Income Group Customers">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Demos\CG\Airoli_Mindspace_East\Customers Data\Medium Income Group.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomerKey"
+              DTS:DTSID="{BED20F9E-F93A-4752-8B26-F9BCB644F5CC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{50855DC7-2C11-4589-86AB-D0F18339BD71}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MiddleName"
+              DTS:DTSID="{772190BB-476D-4844-BF93-40851C061974}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastName"
+              DTS:DTSID="{AAB340DF-242E-4C9D-9C4C-6AF306D64633}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gender"
+              DTS:DTSID="{F234AFF2-D69C-40F9-9718-2234D07DA9E3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Occupation"
+              DTS:DTSID="{4698034F-0BC6-40E1-88F9-7AF4F13221E0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GeographyKey"
+              DTS:DTSID="{BF6B48FC-23F9-4BC3-8C3B-488514C3C37F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="YearlyIncome"
+              DTS:DTSID="{38F6120E-4B2B-4459-BC45-7784609B1F67}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Merge customers from High and Medium Income Group"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{048B68CA-56A9-4D85-B078-D1AC9D620180}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Merge customers from High and Medium Income Group"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers"
+              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="High Income Group Customers"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager - High Income Group Customers]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager - High Income Group Customers]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[CustomerKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[CustomerKey]"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[CustomerKey]"
+                      name="CustomerKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[MiddleName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[MiddleName]"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[MiddleName]"
+                      name="MiddleName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      length="1"
+                      lineageId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[Occupation]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[Occupation]"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[Occupation]"
+                      name="Occupation"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[GeographyKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[GeographyKey]"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[GeographyKey]"
+                      name="GeographyKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[YearlyIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[YearlyIncome]"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[YearlyIncome]"
+                      name="YearlyIncome"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[CustomerKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CustomerKey" />
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[MiddleName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MiddleName" />
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[Occupation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Occupation" />
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[GeographyKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="GeographyKey" />
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[YearlyIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="YearlyIncome" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Merge customers from High and Medium Income Group\Load Customers"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="Load Customers"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">"dbo"."Union_All_Customers"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.ADONETDestination, Microsoft.SqlServer.ADONETDest, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Merge customers from High and Medium Income Group\Load Customers.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[.\sql2012.AdventureWorksDW20121]"
+                  connectionManagerRefId="Package.ConnectionManagers[.\sql2012.AdventureWorksDW20121]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].Columns[CustomerKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CustomerKey"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].ExternalColumns[CustomerKey]"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[CustomerKey]" />
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].Columns[MiddleName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MiddleName"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].ExternalColumns[MiddleName]"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[MiddleName]" />
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].Columns[LastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].Columns[Gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].ExternalColumns[Gender]"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].Columns[Occupation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Occupation"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].ExternalColumns[Occupation]"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[Occupation]" />
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].Columns[GeographyKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="GeographyKey"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].ExternalColumns[GeographyKey]"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[GeographyKey]" />
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].Columns[YearlyIncome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="YearlyIncome"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].ExternalColumns[YearlyIncome]"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[YearlyIncome]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].ExternalColumns[CustomerKey]"
+                      dataType="i4"
+                      name="CustomerKey" />
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].ExternalColumns[MiddleName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MiddleName" />
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].ExternalColumns[Occupation]"
+                      dataType="wstr"
+                      length="50"
+                      name="Occupation" />
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].ExternalColumns[GeographyKey]"
+                      dataType="i4"
+                      name="GeographyKey" />
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input].ExternalColumns[YearlyIncome]"
+                      dataType="numeric"
+                      name="YearlyIncome"
+                      precision="19"
+                      scale="255" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Merge customers from High and Medium Income Group\Load Customers.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Load Customers.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Load Customers.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Load Customers.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Load Customers.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers"
+              componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Medium Income Group Customers"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager - Medium Income Group Customers]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager - Medium Income Group Customers]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[CustomerKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[CustomerKey]"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[CustomerKey]"
+                      name="CustomerKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[MiddleName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[MiddleName]"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[MiddleName]"
+                      name="MiddleName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      length="1"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[Occupation]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[Occupation]"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[Occupation]"
+                      name="Occupation"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[GeographyKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[GeographyKey]"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[GeographyKey]"
+                      name="GeographyKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[YearlyIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[YearlyIncome]"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[YearlyIncome]"
+                      name="YearlyIncome"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[CustomerKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CustomerKey" />
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[MiddleName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MiddleName" />
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[Occupation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Occupation" />
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[GeographyKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="GeographyKey" />
+                    <externalMetadataColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].ExternalColumns[YearlyIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="YearlyIncome" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Merge customers from High and Medium Income Group\Merge"
+              componentClassID="{36E0E750-2510-4776-AA6E-17EAE84FD63E}"
+              contactInfo="Merge;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple sorted data flows into one sorted data flow. Unlike the Merge Join, all rows flow to the output. For example, combine two sorted lists of customers into a single sorted list. If sorting is not important, use the Union All transformation. "
+              name="Merge"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Merge customers from High and Medium Income Group\Merge.Inputs[Merge Input 1]"
+                  name="Merge Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Inputs[Merge Input 1].Columns[CustomerKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CustomerKey"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[CustomerKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[CustomerKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Inputs[Merge Input 1].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[FirstName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[FirstName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Inputs[Merge Input 1].Columns[MiddleName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MiddleName"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[MiddleName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[MiddleName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Inputs[Merge Input 1].Columns[LastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[LastName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[LastName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Inputs[Merge Input 1].Columns[Gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[Gender]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[Gender]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Inputs[Merge Input 1].Columns[Occupation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Occupation"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[Occupation]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[Occupation]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Inputs[Merge Input 1].Columns[GeographyKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="GeographyKey"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[GeographyKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[GeographyKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Inputs[Merge Input 1].Columns[YearlyIncome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="YearlyIncome"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[YearlyIncome]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[YearlyIncome]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Merge customers from High and Medium Income Group\Merge.Inputs[Merge Input 2]"
+                  name="Merge Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Inputs[Merge Input 2].Columns[CustomerKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CustomerKey"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[CustomerKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[CustomerKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Inputs[Merge Input 2].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[FirstName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[FirstName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Inputs[Merge Input 2].Columns[MiddleName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MiddleName"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[MiddleName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[MiddleName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Inputs[Merge Input 2].Columns[LastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[LastName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[LastName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Inputs[Merge Input 2].Columns[Gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[Gender]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[Gender]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Inputs[Merge Input 2].Columns[Occupation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Occupation"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[Occupation]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[Occupation]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Inputs[Merge Input 2].Columns[GeographyKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="GeographyKey"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[GeographyKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[GeographyKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Inputs[Merge Input 2].Columns[YearlyIncome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="YearlyIncome"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[YearlyIncome]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[YearlyIncome]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1]"
+                  isSorted="true"
+                  name="Merge Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[CustomerKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[CustomerKey]"
+                      name="CustomerKey"
+                      sortKeyPosition="1" />
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[MiddleName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[MiddleName]"
+                      name="MiddleName" />
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[Gender]"
+                      name="Gender" />
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[Occupation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[Occupation]"
+                      name="Occupation" />
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[GeographyKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[GeographyKey]"
+                      name="GeographyKey" />
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[YearlyIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1].Columns[YearlyIncome]"
+                      name="YearlyIncome" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Merge customers from High and Medium Income Group\Sort"
+              componentClassID="{5B1A3FF5-D366-4D75-AD1F-F19A36FCBEDB}"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Merge customers from High and Medium Income Group\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort.Inputs[Sort Input].Columns[CustomerKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CustomerKey"
+                      lineageId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[CustomerKey]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort.Inputs[Sort Input].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[FirstName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort.Inputs[Sort Input].Columns[MiddleName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MiddleName"
+                      lineageId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[MiddleName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort.Inputs[Sort Input].Columns[LastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[LastName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort.Inputs[Sort Input].Columns[Gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      lineageId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[Gender]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort.Inputs[Sort Input].Columns[Occupation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Occupation"
+                      lineageId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[Occupation]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort.Inputs[Sort Input].Columns[GeographyKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="GeographyKey"
+                      lineageId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[GeographyKey]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort.Inputs[Sort Input].Columns[YearlyIncome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="YearlyIncome"
+                      lineageId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[YearlyIncome]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[CustomerKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[CustomerKey]"
+                      name="CustomerKey"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[CustomerKey]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[FirstName]"
+                      name="FirstName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[FirstName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[MiddleName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[MiddleName]"
+                      name="MiddleName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[MiddleName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[LastName]"
+                      name="LastName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[LastName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[Gender]"
+                      name="Gender">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[Gender]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[Occupation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[Occupation]"
+                      name="Occupation">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[Occupation]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[GeographyKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[GeographyKey]"
+                      name="GeographyKey">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[GeographyKey]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[YearlyIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output].Columns[YearlyIncome]"
+                      name="YearlyIncome">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output].Columns[YearlyIncome]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Merge customers from High and Medium Income Group\Sort 1"
+              componentClassID="{5B1A3FF5-D366-4D75-AD1F-F19A36FCBEDB}"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Merge customers from High and Medium Income Group\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort 1.Inputs[Sort Input].Columns[CustomerKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CustomerKey"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[CustomerKey]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort 1.Inputs[Sort Input].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[FirstName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort 1.Inputs[Sort Input].Columns[MiddleName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MiddleName"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[MiddleName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort 1.Inputs[Sort Input].Columns[LastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[LastName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort 1.Inputs[Sort Input].Columns[Gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[Gender]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort 1.Inputs[Sort Input].Columns[Occupation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Occupation"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[Occupation]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort 1.Inputs[Sort Input].Columns[GeographyKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="GeographyKey"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[GeographyKey]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort 1.Inputs[Sort Input].Columns[YearlyIncome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="YearlyIncome"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[YearlyIncome]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[CustomerKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[CustomerKey]"
+                      name="CustomerKey"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[CustomerKey]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[FirstName]"
+                      name="FirstName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[FirstName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[MiddleName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[MiddleName]"
+                      name="MiddleName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[MiddleName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[LastName]"
+                      name="LastName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[LastName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[Gender]"
+                      name="Gender">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[Gender]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[Occupation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[Occupation]"
+                      name="Occupation">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[Occupation]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[GeographyKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[GeographyKey]"
+                      name="GeographyKey">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[GeographyKey]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[YearlyIncome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output].Columns[YearlyIncome]"
+                      name="YearlyIncome">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output].Columns[YearlyIncome]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Merge customers from High and Medium Income Group.Paths[Flat File Source Output1]"
+              endId="Package\Merge customers from High and Medium Income Group\Sort.Inputs[Sort Input]"
+              name="Flat File Source Output"
+              startId="Package\Merge customers from High and Medium Income Group\High Income Group Customers.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Merge customers from High and Medium Income Group.Paths[Flat File Source Output]"
+              endId="Package\Merge customers from High and Medium Income Group\Sort 1.Inputs[Sort Input]"
+              name="Flat File Source Output"
+              startId="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Merge customers from High and Medium Income Group.Paths[Merge Output 1]"
+              endId="Package\Merge customers from High and Medium Income Group\Load Customers.Inputs[ADO NET Destination Input]"
+              name="Merge Output 1"
+              startId="Package\Merge customers from High and Medium Income Group\Merge.Outputs[Merge Output 1]" />
+            <path
+              refId="Package\Merge customers from High and Medium Income Group.Paths[Sort Output1]"
+              endId="Package\Merge customers from High and Medium Income Group\Merge.Inputs[Merge Input 2]"
+              name="Sort Output"
+              startId="Package\Merge customers from High and Medium Income Group\Sort 1.Outputs[Sort Output]" />
+            <path
+              refId="Package\Merge customers from High and Medium Income Group.Paths[Sort Output]"
+              endId="Package\Merge customers from High and Medium Income Group\Merge.Inputs[Merge Input 1]"
+              name="Sort Output"
+              startId="Package\Merge customers from High and Medium Income Group\Sort.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="341,42"
+          Id="Package\Merge customers from High and Medium Income Group"
+          TopLeft="251.5,23.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Merge customers from High and Medium Income Group">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="224,42"
+          Id="Package\Merge customers from High and Medium Income Group\High Income Group Customers"
+          TopLeft="212.5,26.5" />
+        <NodeLayout
+          Size="240,42"
+          Id="Package\Merge customers from High and Medium Income Group\Medium Income Group Customers"
+          TopLeft="460.5,25.5" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Merge customers from High and Medium Income Group\Load Customers"
+          TopLeft="398,318" />
+        <NodeLayout
+          Size="98,42"
+          Id="Package\Merge customers from High and Medium Income Group\Sort"
+          TopLeft="332.5,113.5" />
+        <NodeLayout
+          Size="107,42"
+          Id="Package\Merge customers from High and Medium Income Group\Sort 1"
+          TopLeft="565.5,119.5" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Merge customers from High and Medium Income Group\Merge"
+          TopLeft="441.5,215.5" />
+        <EdgeLayout
+          Id="Package\Merge customers from High and Medium Income Group.Paths[Flat File Source Output1]"
+          TopLeft="324.5,68.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="57,45"
+              Start="0,0"
+              End="57,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="4,22.5" />
+                  <mssgle:LineSegment
+                    End="53,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53,22.5"
+                    Point2="57,22.5"
+                    Point3="57,26.5" />
+                  <mssgle:LineSegment
+                    End="57,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge customers from High and Medium Income Group.Paths[Flat File Source Output]"
+          TopLeft="580.5,67.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.5,52"
+              Start="0,0"
+              End="38.5,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22"
+                    Point2="0,26"
+                    Point3="4,26" />
+                  <mssgle:LineSegment
+                    End="34.5,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.5,26"
+                    Point2="38.5,26"
+                    Point3="38.5,30" />
+                  <mssgle:LineSegment
+                    End="38.5,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge customers from High and Medium Income Group.Paths[Sort Output]"
+          TopLeft="381.5,155.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="97.3333333333333,60"
+              Start="0,0"
+              End="97.3333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.4744525547445" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.4744525547445"
+                    Point2="0,35.4744525547445"
+                    Point3="4,35.4744525547445" />
+                  <mssgle:LineSegment
+                    End="93.3333333333333,35.4744525547445" />
+                  <mssgle:CubicBezierSegment
+                    Point1="93.3333333333333,35.4744525547445"
+                    Point2="97.3333333333333,35.4744525547445"
+                    Point3="97.3333333333333,39.4744525547445" />
+                  <mssgle:LineSegment
+                    End="97.3333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge customers from High and Medium Income Group.Paths[Sort Output1]"
+          TopLeft="619,161.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-106.833333333333,54"
+              Start="0,0"
+              End="-106.833333333333,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.9270072992701" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.9270072992701"
+                    Point2="0,31.9270072992701"
+                    Point3="-4,31.9270072992701" />
+                  <mssgle:LineSegment
+                    End="-102.833333333333,31.9270072992701" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-102.833333333333,31.9270072992701"
+                    Point2="-106.833333333333,31.9270072992701"
+                    Point3="-106.833333333333,35.9270072992701" />
+                  <mssgle:LineSegment
+                    End="-106.833333333333,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Merge customers from High and Medium Income Group.Paths[Merge Output 1]"
+          TopLeft="495.5,257.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20,60.5"
+              Start="0,0"
+              End="-20,53">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.25"
+                    Point2="0,30.25"
+                    Point3="-4,30.25" />
+                  <mssgle:LineSegment
+                    End="-16,30.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16,30.25"
+                    Point2="-20,30.25"
+                    Point3="-20,34.25" />
+                  <mssgle:LineSegment
+                    End="-20,53" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Merge customers from High and Medium Income Group\Load Customers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

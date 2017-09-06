@@ -1,0 +1,32 @@
+<Books>
+	<Book>
+		<ID>1</ID>
+		<Name>SSIS Unleashed</Name>
+		<Price>1500</Price>
+		<Author>Professional Series</Author>
+	</Book>
+<Book>
+		<ID>2</ID>
+		<Name>SQL Server Unleashed</Name>
+		<Price>1200</Price>
+		<Author>Roger Doherty</Author>
+	</Book>
+<Book>
+		<ID>3</ID>
+		<Name>SQL Server 2012 Performance Tuning</Name>
+		<Price>3200</Price>
+		<Author>Pinal Dave</Author>
+	</Book>
+<Book>
+		<ID>4</ID>
+		<Name>Creating Reports with SSRS</Name>
+		<Price>2000</Price>
+		<Author>Blue Buffalo Inc.</Author>
+	</Book>
+<Book>
+		<ID>5</ID>
+		<Name>Java for Beginners</Name>
+		<Price>800</Price>
+		<Author>James Gosling</Author>
+	</Book>
+</Books>

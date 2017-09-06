@@ -1,0 +1,853 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/31/2017 7:45:46 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="PRITIDELL"
+  DTS:CreatorName="PRITIDELL\Priti"
+  DTS:DTSID="{01C52BF1-DBF7-45B6-824A-7D71BBF9DA11}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.6020.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Fuzzy Lookup"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{D9247385-BA39-4699-A290-F89A8A796264}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[.\SQL2012.AdventureWorksDW2012]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D211D011-10E8-4BE1-9F43-ABE1601A6BCC}"
+      DTS:ObjectName=".\SQL2012.AdventureWorksDW2012">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.\SQL2012;Initial Catalog=AdventureWorksDW2012;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2109C08C-B60A-42B3-B014-59F1457BD8EE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarSQLCommand">
+      <DTS:VariableValue
+        DTS:DataType="8">TRUNCATE TABLE Occupations_Fuzzy_Lookup_PB</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Fuzzy Lookup Occupation data"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F953D1F0-949D-4145-A207-70F22792DF5B}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fuzzy Lookup Occupation data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Fuzzy Lookup Occupation data\Extract Occupations"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Extract Occupations"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">FuzzyGroupingTest_PB</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[.\SQL2012.AdventureWorksDW2012]"
+                  connectionManagerRefId="Package.ConnectionManagers[.\SQL2012.AdventureWorksDW2012]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Output].Columns[Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      lineageId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Output].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Output].Columns[Occupation]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Output].ExternalColumns[Occupation]"
+                      length="30"
+                      lineageId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Output].Columns[Occupation]"
+                      name="Occupation"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Output].ExternalColumns[Occupation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Occupation" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      dataType="i4"
+                      lineageId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Error Output].Columns[Occupation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Error Output].Columns[Occupation]"
+                      name="Occupation" />
+                    <outputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation"
+              componentClassID="{E4A5F949-EC93-45AB-8B36-B52936257EC2}"
+              contactInfo="Fuzzy Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;5"
+              description="Performs data cleaning tasks such as standardizing data, correcting data, and providing missing values.  Uses fuzzy matching to return one or more close matches from a reference table. For example, lookup customer data by address, even if your input address data does not exactly match your reference address data."
+              name="Fuzzy Lookup on Occupation"
+              version="5">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates whether to reuse an existing fuzzy-match index table or build a new one. The new index table can be temporary, persisted, or persisted and maintained."
+                  name="MatchIndexOptions"
+                  typeConverter="tcMatchIndexOptions">1</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the maximum amount of memory (MB) that this instance of the Fuzzy Lookup transformation can use.  If 0 is given, then the transform will dynamically adjust it's memory usage based upon it's requirements and available system memory."
+                  expressionType="Notify"
+                  name="MaxMemoryUsage" />
+                <property
+                  dataType="System.Null"
+                  description="Specifies the name of the fuzzy-match index table to be reused or the table name in which a newly generated fuzzy-match index table will be written."
+                  name="MatchIndexName"
+                  state="escaped" />
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the reference table or view against which to match incoming records."
+                  name="ReferenceTableName"
+                  state="escaped">_x005B_dbo_x005D_._x005B_FuzzySourceData_PB_x005D_</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates whether to drop an existing fuzzy-match index table if transformation is configured to generate a new table and a table with the same name already exists."
+                  name="DropExistingMatchIndex">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Whether a copy of the reference table should be made for fuzzy match index construction and subsequent matching.  It is strongly recommended that a copy always be made, otherwise unpredictable output may result if the contents of the reference table change during package execution (or between executions if reusing a fuzzy match index).  If this property is set to false, the reference table must additionally have a clustered index built upon an integer identity column."
+                  name="CopyReferenceTable">1</property>
+                <property
+                  dataType="System.UInt32"
+                  description="Specifies the maximum number of fuzzy matches to return for an input record."
+                  name="MaxOutputMatchesPerInput">1</property>
+                <property
+                  dataType="System.Single"
+                  description="Specifies the minimum similarity score required for the match results that the transformation returns."
+                  name="MinSimilarity">0.1</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the set of white-space and punctuation characters used to separate fuzzy match fields into the words used for matching and scoring a fuzzy lookup."
+                  name="Delimiters"
+                  state="escaped">_x0020__x0009__x000D__x000A__x002C_._x003B_:-_x0022__x0027__x0026__x002F__x005C__x0040__x0021__x003F__x0028__x0029__x003C__x003E__x005B__x005D__x007B__x007D__x007C__x0023__x002A__x005E__x0025_</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the metadata of the reference table in XML format."
+                  name="ReferenceMetadataXml"
+                  state="escaped">_x003C_referenceMetadata_x003E__x003C_referenceColumns_x003E__x003C_referenceColumn_x0020_name_x003D__x0022_Occupation_x0022__x0020_dataType_x003D__x0022_DT_STR_x0022__x0020_length_x003D__x0022_30_x0022__x0020_precision_x003D__x0022_0_x0022__x0020_scale_x003D__x0022_0_x0022__x0020_codePage_x003D__x0022_1252_x0022__x002F__x003E__x003C__x002F_referenceColumns_x003E__x003C__x002F_referenceMetadata_x003E__x000D__x000A_</property>
+                <property
+                  dataType="System.Boolean"
+                  description="If true, each input record will be directly compared against EVERY record in the reference table.  This may produce slightly better results, but will be extremely slow unless the number of records in the reference table is very small.  Note that the entire reference table will be loaded into main memory if this option is enabled.  This option is primarily intended for debugging purposes and should be used with care."
+                  name="Exhaustive">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="If true, Fuzzy Lookup will partially load the error-tolerant index and the reference table into main memory before execution begins.  This can greatly enhance performance if many input rows are to be processed."
+                  name="WarmCaches">true</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[.\SQL2012.AdventureWorksDW2012]"
+                  connectionManagerRefId="Package.ConnectionManagers[.\SQL2012.AdventureWorksDW2012]"
+                  description="Microsoft SQL Server connection and database in which the fuzzy lookup reference table is located and where the fuzzy match index table will be stored and accessed."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Inputs[Fuzzy Lookup Input]"
+                  name="Fuzzy Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Inputs[Fuzzy Lookup Input].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      lineageId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Output].Columns[Id]">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="Name of the reference table column with which the input column should be matched."
+                          name="JoinToReferenceColumn"
+                          state="escaped" />
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies whether the match is a fuzzy or an exact match."
+                          name="JoinType"
+                          typeConverter="tcJoinType">2</property>
+                        <property
+                          dataType="System.Single"
+                          description="Specifies the minimum textual similarity required between input and fuzzy matched records on values in this particular join column.  Must be a floating point value between 0.0 and 1.0."
+                          name="MinSimilarity">0</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="Specifies the comparison options for character data. The options are those supported by the FoldString function."
+                          name="FuzzyComparisonFlags"
+                          typeConverter="tcComparisonFlags">1</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="Flags to FoldString that should be used when comparing whether two strings are equivalent."
+                          name="FuzzyComparisonFlagsEx"
+                          typeConverter="tcComparisonFlagsEx">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Inputs[Fuzzy Lookup Input].Columns[Occupation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Occupation"
+                      lineageId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Output].Columns[Occupation]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Name of the reference table column with which the input column should be matched."
+                          name="JoinToReferenceColumn"
+                          state="escaped">Occupation</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies whether the match is a fuzzy or an exact match."
+                          name="JoinType"
+                          typeConverter="tcJoinType">2</property>
+                        <property
+                          dataType="System.Single"
+                          description="Specifies the minimum textual similarity required between input and fuzzy matched records on values in this particular join column.  Must be a floating point value between 0.0 and 1.0."
+                          name="MinSimilarity">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data. The options are those supported by the FoldString function."
+                          name="FuzzyComparisonFlags"
+                          typeConverter="tcComparisonFlags">1</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="Flags to FoldString that should be used when comparing whether two strings are equivalent."
+                          name="FuzzyComparisonFlagsEx"
+                          typeConverter="tcComparisonFlagsEx">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Outputs[Fuzzy Lookup Output]"
+                  name="Fuzzy Lookup Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Outputs[Fuzzy Lookup Output].Columns[Id]"
+                      dataType="i4"
+                      lineageId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Outputs[Fuzzy Lookup Output].Columns[Id]"
+                      name="Id">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the reference table column that is copied to the output for each match result."
+                          name="CopyFromReferenceColumn"
+                          state="escaped" />
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                          name="SourceInputColumnLineageID">#{Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Output].Columns[Id]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies whether the column is used to indicate confidence or similarity."
+                          name="ColumnType"
+                          typeConverter="tcColumnType">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Outputs[Fuzzy Lookup Output].Columns[Occupation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Outputs[Fuzzy Lookup Output].Columns[Occupation]"
+                      name="Occupation">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the reference table column that is copied to the output for each match result."
+                          name="CopyFromReferenceColumn"
+                          state="escaped" />
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                          name="SourceInputColumnLineageID">#{Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Output].Columns[Occupation]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies whether the column is used to indicate confidence or similarity."
+                          name="ColumnType"
+                          typeConverter="tcColumnType">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Outputs[Fuzzy Lookup Output].Columns[Occupation (1)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Outputs[Fuzzy Lookup Output].Columns[Occupation (1)]"
+                      name="Occupation (1)">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the reference table column that is copied to the output for each match result."
+                          name="CopyFromReferenceColumn"
+                          state="escaped">Occupation</property>
+                        <property
+                          containsID="true"
+                          dataType="System.Null"
+                          description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                          name="SourceInputColumnLineageID" />
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies whether the column is used to indicate confidence or similarity."
+                          name="ColumnType"
+                          typeConverter="tcColumnType">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Outputs[Fuzzy Lookup Output].Columns[_Similarity]"
+                      dataType="r4"
+                      lineageId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Outputs[Fuzzy Lookup Output].Columns[_Similarity]"
+                      name="_Similarity">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies whether the column is used to indicate confidence or similarity."
+                          name="ColumnType"
+                          typeConverter="tcColumnType">1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Outputs[Fuzzy Lookup Output].Columns[_Confidence]"
+                      dataType="r4"
+                      lineageId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Outputs[Fuzzy Lookup Output].Columns[_Confidence]"
+                      name="_Confidence">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies whether the column is used to indicate confidence or similarity."
+                          name="ColumnType"
+                          typeConverter="tcColumnType">2</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Outputs[Fuzzy Lookup Output].Columns[_Similarity_Occupation]"
+                      dataType="r4"
+                      description="Column-level similarity score for fuzzy join on column &quot;Occupation&quot;."
+                      lineageId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Outputs[Fuzzy Lookup Output].Columns[_Similarity_Occupation]"
+                      name="_Similarity_Occupation">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the reference table column that is copied to the output for each match result."
+                          name="CopyFromReferenceColumn"
+                          state="escaped" />
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                          name="SourceInputColumnLineageID">#{Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Output].Columns[Occupation]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies whether the column is used to indicate confidence or similarity."
+                          name="ColumnType"
+                          typeConverter="tcColumnType">3</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fuzzy Lookup Occupation data\Load Occupations"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load Occupations"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Occupations_Fuzzy_Lookup_PB]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fuzzy Lookup Occupation data\Load Occupations.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[.\SQL2012.AdventureWorksDW2012]"
+                  connectionManagerRefId="Package.ConnectionManagers[.\SQL2012.AdventureWorksDW2012]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fuzzy Lookup Occupation data\Load Occupations.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Load Occupations.Inputs[OLE DB Destination Input].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Fuzzy Lookup Occupation data\Load Occupations.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Outputs[Fuzzy Lookup Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Load Occupations.Inputs[OLE DB Destination Input].Columns[Occupation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Occupation"
+                      externalMetadataColumnId="Package\Fuzzy Lookup Occupation data\Load Occupations.Inputs[OLE DB Destination Input].ExternalColumns[Occupation]"
+                      lineageId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Outputs[Fuzzy Lookup Output].Columns[Occupation]" />
+                    <inputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Load Occupations.Inputs[OLE DB Destination Input].Columns[Occupation (1)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Occupation (1)"
+                      externalMetadataColumnId="Package\Fuzzy Lookup Occupation data\Load Occupations.Inputs[OLE DB Destination Input].ExternalColumns[Occupation (1)]"
+                      lineageId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Outputs[Fuzzy Lookup Output].Columns[Occupation (1)]" />
+                    <inputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Load Occupations.Inputs[OLE DB Destination Input].Columns[_Similarity]"
+                      cachedDataType="r4"
+                      cachedName="_Similarity"
+                      externalMetadataColumnId="Package\Fuzzy Lookup Occupation data\Load Occupations.Inputs[OLE DB Destination Input].ExternalColumns[_Similarity]"
+                      lineageId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Outputs[Fuzzy Lookup Output].Columns[_Similarity]" />
+                    <inputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Load Occupations.Inputs[OLE DB Destination Input].Columns[_Confidence]"
+                      cachedDataType="r4"
+                      cachedName="_Confidence"
+                      externalMetadataColumnId="Package\Fuzzy Lookup Occupation data\Load Occupations.Inputs[OLE DB Destination Input].ExternalColumns[_Confidence]"
+                      lineageId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Outputs[Fuzzy Lookup Output].Columns[_Confidence]" />
+                    <inputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Load Occupations.Inputs[OLE DB Destination Input].Columns[_Similarity_Occupation]"
+                      cachedDataType="r4"
+                      cachedName="_Similarity_Occupation"
+                      externalMetadataColumnId="Package\Fuzzy Lookup Occupation data\Load Occupations.Inputs[OLE DB Destination Input].ExternalColumns[_Similarity_Occupation]"
+                      lineageId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Outputs[Fuzzy Lookup Output].Columns[_Similarity_Occupation]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Load Occupations.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Load Occupations.Inputs[OLE DB Destination Input].ExternalColumns[Occupation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Occupation" />
+                    <externalMetadataColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Load Occupations.Inputs[OLE DB Destination Input].ExternalColumns[Occupation (1)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Occupation (1)" />
+                    <externalMetadataColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Load Occupations.Inputs[OLE DB Destination Input].ExternalColumns[_Similarity]"
+                      dataType="r4"
+                      name="_Similarity" />
+                    <externalMetadataColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Load Occupations.Inputs[OLE DB Destination Input].ExternalColumns[_Confidence]"
+                      dataType="r4"
+                      name="_Confidence" />
+                    <externalMetadataColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Load Occupations.Inputs[OLE DB Destination Input].ExternalColumns[_Similarity_Occupation]"
+                      dataType="r4"
+                      name="_Similarity_Occupation" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fuzzy Lookup Occupation data\Load Occupations.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Fuzzy Lookup Occupation data\Load Occupations.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Load Occupations.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fuzzy Lookup Occupation data\Load Occupations.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fuzzy Lookup Occupation data\Load Occupations.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fuzzy Lookup Occupation data\Load Occupations.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Fuzzy Lookup Occupation data.Paths[Fuzzy Lookup Output]"
+              endId="Package\Fuzzy Lookup Occupation data\Load Occupations.Inputs[OLE DB Destination Input]"
+              name="Fuzzy Lookup Output"
+              startId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Outputs[Fuzzy Lookup Output]" />
+            <path
+              refId="Package\Fuzzy Lookup Occupation data.Paths[OLE DB Source Output]"
+              endId="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation.Inputs[Fuzzy Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Fuzzy Lookup Occupation data\Extract Occupations.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Result Table"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{BC8C9A8A-3F19-4F4E-907A-F54A1BC8114B}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Result Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D211D011-10E8-4BE1-9F43-ABE1601A6BCC}"
+          SQLTask:SqlStmtSourceType="Variable"
+          SQLTask:SqlStatementSource="User::VarSQLCommand" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{BC4A8DA5-A4B9-4D4D-A0BD-1F5FBA42432B}"
+      DTS:From="Package\Truncate Result Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Fuzzy Lookup Occupation data" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="223,42"
+          Id="Package\Fuzzy Lookup Occupation data"
+          TopLeft="284.5,45.5" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Truncate Result Table"
+          TopLeft="231,167" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="322,167">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="74,-79.5"
+              Start="0,0"
+              End="74,-72">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-35.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-35.75"
+                    Point2="0,-39.75"
+                    Point3="4,-39.75" />
+                  <mssgle:LineSegment
+                    End="70,-39.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="70,-39.75"
+                    Point2="74,-39.75"
+                    Point3="74,-43.75" />
+                  <mssgle:LineSegment
+                    End="74,-72" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Fuzzy Lookup Occupation data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Fuzzy Lookup Occupation data\Extract Occupations"
+          TopLeft="313,53" />
+        <NodeLayout
+          Size="214,42"
+          Id="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation"
+          TopLeft="339,156" />
+        <EdgeLayout
+          Id="Package\Fuzzy Lookup Occupation data.Paths[OLE DB Source Output]"
+          TopLeft="399,95">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="47,61"
+              Start="0,0"
+              End="47,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="4,30.5" />
+                  <mssgle:LineSegment
+                    End="43,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43,30.5"
+                    Point2="47,30.5"
+                    Point3="47,34.5" />
+                  <mssgle:LineSegment
+                    End="47,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Fuzzy Lookup Occupation data\Load Occupations"
+          TopLeft="340,252" />
+        <EdgeLayout
+          Id="Package\Fuzzy Lookup Occupation data.Paths[Fuzzy Lookup Output]"
+          TopLeft="446,198">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-25,54"
+              Start="0,0"
+              End="-25,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23"
+                    Point2="0,27"
+                    Point3="-4,27" />
+                  <mssgle:LineSegment
+                    End="-21,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21,27"
+                    Point2="-25,27"
+                    Point3="-25,31" />
+                  <mssgle:LineSegment
+                    End="-25,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fuzzy Lookup Occupation data\Fuzzy Lookup on Occupation">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fuzzy Lookup Occupation data\Load Occupations">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

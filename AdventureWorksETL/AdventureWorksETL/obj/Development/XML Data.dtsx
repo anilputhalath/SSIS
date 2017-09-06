@@ -1,0 +1,482 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/4/2017 1:38:27 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="PRITIDELL"
+  DTS:CreatorName="PRITIDELL\Priti"
+  DTS:DTSID="{11CCE0E3-1640-44B8-8AAA-49DF0B45411A}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.6020.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="XML Data"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{9E037921-E9DA-4274-9B44-A2578EAE4E22}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[.\SQL2012.AdventureWorksDW2012]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{18A17438-F2D7-4F5C-87F2-7CAD5DAFED5E}"
+      DTS:ObjectName=".\SQL2012.AdventureWorksDW2012">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.\SQL2012;Initial Catalog=AdventureWorksDW2012;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load data from XML"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B37894AB-084B-4FAC-A852-BE52A2CB6A2B}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load data from XML"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load data from XML\Extract Books data"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              contactInfo="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element.;Microsoft Corporation;Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element."
+              name="Extract Books data"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.XmlSourceAdapter, Microsoft.SqlServer.XmlSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+                <property
+                  dataType="System.String"
+                  description="The XML data used by the XML source adapter."
+                  expressionType="Notify"
+                  name="XMLData">D:\Demos\CG\Airoli_Mindspace_East\Books.xml</property>
+                <property
+                  dataType="System.String"
+                  description="The variable used by the XML source adapter to specify XML data."
+                  name="XMLDataVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Defines how the XML source adapter gets XML data."
+                  name="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The XML schema definition used by the XML source adapter."
+                  expressionType="Notify"
+                  name="XMLSchemaDefinition">D:\Demos\CG\Airoli_Mindspace_East\Books.xsd</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Identifies whether or not to use inline schema."
+                  name="UseInlineSchema">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Defines how XML integer types are mapped."
+                  name="XMLIntegerMapping"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.XmlSourceAdapter+XMLIntegerMappingConverter, Microsoft.SqlServer.XmlSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">0</property>
+              </properties>
+              <outputs>
+                <output
+                  refId="Package\Load data from XML\Extract Books data.Outputs[Book]"
+                  name="Book">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifies the rowset associated with the output."
+                      name="RowsetID">Book</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load data from XML\Extract Books data.Outputs[Book].Columns[ID]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from XML\Extract Books data.Outputs[Book].ExternalColumns[ID]"
+                      lineageId="Package\Load data from XML\Extract Books data.Outputs[Book].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load data from XML\Extract Books data.Outputs[Book].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from XML\Extract Books data.Outputs[Book].ExternalColumns[Name]"
+                      length="255"
+                      lineageId="Package\Load data from XML\Extract Books data.Outputs[Book].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load data from XML\Extract Books data.Outputs[Book].Columns[Price]"
+                      dataType="ui2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from XML\Extract Books data.Outputs[Book].ExternalColumns[Price]"
+                      lineageId="Package\Load data from XML\Extract Books data.Outputs[Book].Columns[Price]"
+                      name="Price"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load data from XML\Extract Books data.Outputs[Book].Columns[Author]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load data from XML\Extract Books data.Outputs[Book].ExternalColumns[Author]"
+                      length="255"
+                      lineageId="Package\Load data from XML\Extract Books data.Outputs[Book].Columns[Author]"
+                      name="Author"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load data from XML\Extract Books data.Outputs[Book].ExternalColumns[ID]"
+                      dataType="ui1"
+                      name="ID">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.Byte</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load data from XML\Extract Books data.Outputs[Book].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load data from XML\Extract Books data.Outputs[Book].ExternalColumns[Price]"
+                      dataType="ui2"
+                      name="Price">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt16</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load data from XML\Extract Books data.Outputs[Book].ExternalColumns[Author]"
+                      dataType="wstr"
+                      length="255"
+                      name="Author">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load data from XML\Extract Books data.Outputs[Book Error Output]"
+                  isErrorOut="true"
+                  name="Book Error Output">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifies the rowset associated with the output."
+                      name="RowsetID">Book</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load data from XML\Extract Books data.Outputs[Book Error Output].Columns[ID]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Load data from XML\Extract Books data.Outputs[Book Error Output].ExternalColumns[ID]"
+                      lineageId="Package\Load data from XML\Extract Books data.Outputs[Book Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Load data from XML\Extract Books data.Outputs[Book Error Output].Columns[Name]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Load data from XML\Extract Books data.Outputs[Book Error Output].ExternalColumns[Name]"
+                      lineageId="Package\Load data from XML\Extract Books data.Outputs[Book Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Load data from XML\Extract Books data.Outputs[Book Error Output].Columns[Price]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Load data from XML\Extract Books data.Outputs[Book Error Output].ExternalColumns[Price]"
+                      lineageId="Package\Load data from XML\Extract Books data.Outputs[Book Error Output].Columns[Price]"
+                      name="Price" />
+                    <outputColumn
+                      refId="Package\Load data from XML\Extract Books data.Outputs[Book Error Output].Columns[Author]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Load data from XML\Extract Books data.Outputs[Book Error Output].ExternalColumns[Author]"
+                      lineageId="Package\Load data from XML\Extract Books data.Outputs[Book Error Output].Columns[Author]"
+                      name="Author" />
+                    <outputColumn
+                      refId="Package\Load data from XML\Extract Books data.Outputs[Book Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load data from XML\Extract Books data.Outputs[Book Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load data from XML\Extract Books data.Outputs[Book Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load data from XML\Extract Books data.Outputs[Book Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load data from XML\Extract Books data.Outputs[Book Error Output].ExternalColumns[ID]"
+                      dataType="nText"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from XML\Extract Books data.Outputs[Book Error Output].ExternalColumns[Name]"
+                      dataType="nText"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from XML\Extract Books data.Outputs[Book Error Output].ExternalColumns[Price]"
+                      dataType="nText"
+                      name="Price" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from XML\Extract Books data.Outputs[Book Error Output].ExternalColumns[Author]"
+                      dataType="nText"
+                      name="Author" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load data from XML\Load Books data"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load Books data"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Books]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load data from XML\Load Books data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[.\SQL2012.AdventureWorksDW2012]"
+                  connectionManagerRefId="Package.ConnectionManagers[.\SQL2012.AdventureWorksDW2012]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load data from XML\Load Books data.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load data from XML\Load Books data.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedDataType="ui1"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\Load data from XML\Load Books data.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\Load data from XML\Extract Books data.Outputs[Book].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\Load data from XML\Load Books data.Inputs[OLE DB Destination Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Load data from XML\Load Books data.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Load data from XML\Extract Books data.Outputs[Book].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Load data from XML\Load Books data.Inputs[OLE DB Destination Input].Columns[Price]"
+                      cachedDataType="ui2"
+                      cachedName="Price"
+                      externalMetadataColumnId="Package\Load data from XML\Load Books data.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      lineageId="Package\Load data from XML\Extract Books data.Outputs[Book].Columns[Price]" />
+                    <inputColumn
+                      refId="Package\Load data from XML\Load Books data.Inputs[OLE DB Destination Input].Columns[Author]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Author"
+                      externalMetadataColumnId="Package\Load data from XML\Load Books data.Inputs[OLE DB Destination Input].ExternalColumns[Author]"
+                      lineageId="Package\Load data from XML\Extract Books data.Outputs[Book].Columns[Author]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load data from XML\Load Books data.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="ui1"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from XML\Load Books data.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from XML\Load Books data.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      dataType="i4"
+                      name="Price" />
+                    <externalMetadataColumn
+                      refId="Package\Load data from XML\Load Books data.Inputs[OLE DB Destination Input].ExternalColumns[Author]"
+                      dataType="wstr"
+                      length="255"
+                      name="Author" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load data from XML\Load Books data.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load data from XML\Load Books data.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load data from XML\Load Books data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load data from XML\Load Books data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load data from XML\Load Books data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load data from XML\Load Books data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load data from XML.Paths[Book]"
+              endId="Package\Load data from XML\Load Books data.Inputs[OLE DB Destination Input]"
+              name="Book"
+              startId="Package\Load data from XML\Extract Books data.Outputs[Book]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Load data from XML"
+          TopLeft="222.5,56.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load data from XML">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Load data from XML\Extract Books data"
+          TopLeft="262.5,18.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Load data from XML\Load Books data"
+          TopLeft="267,109" />
+        <EdgeLayout
+          Id="Package\Load data from XML.Paths[Book]"
+          TopLeft="345.75,60.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.5"
+              Start="0,0"
+              End="0,41">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load data from XML\Load Books data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
